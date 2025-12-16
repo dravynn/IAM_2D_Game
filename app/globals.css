@@ -27,3 +27,8 @@ body {
   @apply relative w-full h-full overflow-hidden;
 }
 
+.platformer-canvas {
+  @apply relative w-full h-full overflow-hidden;
+  image-rendering: pixelated;
+}
+
