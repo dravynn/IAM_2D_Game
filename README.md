@@ -1,122 +1,136 @@
-# IAM QUEST 🎮
+# IAM: The Awakening 🎮
 
-A web-based 2D quest game where you play as a divine hero ("I Am That I Am") exploring zones, completing daily quests, helping NPCs, and collecting IAM tokens.
+A modern Mario-style side-scrolling platformer web game built with **TypeScript**, **React**, and **Tailwind CSS**. Play as "I Am", a divine hero sent to restore balance to a broken world by collecting IAM tokens and giving them back to the people.
 
-## 🚀 Features
+## 🎮 Game Features
 
-- **2D Top-Down Gameplay**: Explore three unique zones with smooth player movement
-- **Quest System**: Complete quests by talking to NPCs and collecting coins
-- **IAM Token Economy**: Earn tokens through quests, daily bonuses, and coin collection
-- **Daily Login Bonus**: Claim rewards for consecutive daily logins
-- **Interactive NPCs**: Talk to NPCs to receive quests and learn about the world
-- **Collectible Coins**: Find and collect IAM coins scattered throughout zones
-- **Quest Log**: Track your active quests and objectives
-- **Dark/Light Mode**: Toggle between themes for comfortable gameplay
-- **Responsive Design**: Play on desktop or mobile devices
-- **Local Storage**: Your progress is automatically saved
+### Core Gameplay
+- **Side-Scrolling Platformer**: Classic Mario-style gameplay with smooth physics
+- **3 Levels**: Each with unique challenges and increasing difficulty
+- **IAM Token Collection**: Collect coins throughout levels to unlock barriers
+- **Obstacles**: Navigate spikes, pits, platforms, and barriers
+- **Win Condition**: Collect all coins and reach the flag to complete levels
+- **Final Awakening**: Complete all levels to "give back" IAM tokens and restore balance
 
-## 🎯 Game Zones
+### Controls
+- **Desktop**: 
+  - `A` / `←` - Move left
+  - `D` / `→` - Move right
+  - `W` / `↑` / `Space` - Jump
+- **Mobile**: 
+  - On-screen directional buttons
+  - Jump button
 
-1. **Sacred Grove** 🌳 - A peaceful forest where your journey begins
-2. **Crystal Caves** 💎 - Mysterious caves filled with glowing crystals
-3. **Divine Peak** ⛰️ - The highest mountain where divine power flows
-
-## 🎮 Controls
-
-### Desktop
-- **WASD** or **Arrow Keys**: Move your character
-- **E**: Interact with NPCs
-- **Click Quest Button**: Open/close quest log
-- **Click Zone Transitions**: Move between zones
-
-### Mobile
-- **Tap and Drag**: Move your character
-- **Directional Buttons**: Use on-screen controls
-- **Tap NPCs**: Interact with NPCs
-- **Bottom Navbar**: Navigate zones and access quest log
+### Game Mechanics
+- **Physics**: Gravity, jumping, friction, and collision detection
+- **Barriers**: Collect required coins to open barriers blocking your path
+- **Level Progression**: Unlock new levels by completing previous ones
+- **Local Storage**: Progress automatically saved (IAM count, unlocked levels)
+- **Camera**: Smooth camera follows player horizontally
 
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 14 (React)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **State Management**: Zustand
+- **State Management**: Zustand with localStorage persistence
 - **Animations**: Framer Motion
-- **Storage**: localStorage (via Zustand persist)
+- **Physics**: Custom game loop with requestAnimationFrame
 
-## 📦 Installation
+## 📦 Project Structure
 
-1. Install dependencies:
+```
+├── app/
+│   ├── page.tsx              # Main game page
+│   ├── layout.tsx            # Root layout
+│   └── globals.css           # Global styles
+├── components/platformer/
+│   ├── Player.tsx            # Player character component
+│   ├── Coin.tsx              # Collectible coin component
+│   ├── Obstacle.tsx          # Obstacles (spikes, platforms, etc.)
+│   ├── GameCanvas.tsx        # Main game canvas with camera
+│   ├── HUD.tsx               # Heads-up display
+│   ├── WinScreen.tsx         # Victory screen
+│   ├── LevelSelect.tsx       # Level selection UI
+│   └── MobileControls.tsx    # Mobile touch controls
+├── hooks/
+│   └── usePlatformerPhysics.ts  # Game physics and collision detection
+├── store/
+│   └── platformerStore.ts    # Zustand game state store
+└── types/
+    └── platformer.ts         # TypeScript type definitions
+```
+
+## 🚀 Getting Started
+
+1. **Install dependencies**:
 ```bash
 npm install
 ```
 
-2. Run the development server:
+2. **Run development server**:
 ```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+3. **Open** [http://localhost:3000](http://localhost:3000) in your browser
 
-## 🏗️ Project Structure
+## 🎯 Game Levels
 
-```
-├── app/
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Main game page
-├── components/
-│   ├── Player.tsx           # Player character component
-│   ├── NPC.tsx              # NPC interaction component
-│   ├── CollectibleCoin.tsx  # Collectible coin component
-│   ├── GameCanvas.tsx       # Main game canvas
-│   ├── HUD.tsx              # Top HUD (tokens, zone)
-│   ├── QuestSidebar.tsx     # Quest log sidebar
-│   ├── BottomNavbar.tsx     # Mobile navigation
-│   ├── DailyLoginModal.tsx  # Daily bonus modal
-│   └── MovementControls.tsx # Mobile movement controls
-├── store/
-│   └── gameStore.ts         # Zustand game state store
-└── types/
-    └── game.ts              # TypeScript type definitions
-```
+### Level 1: The Awakening 🌳
+- **Coins Required**: 10
+- **Description**: Begin your journey to restore balance
+- **Features**: Basic platforms, spikes, and your first barrier
 
-## 🎨 Game Mechanics
+### Level 2: The Descent 💎
+- **Coins Required**: 15
+- **Description**: Navigate through treacherous paths
+- **Features**: More complex platforming, pits, and increased difficulty
 
-### Quests
-- Each zone has unique quests
-- Complete objectives to finish quests
-- Earn IAM tokens as rewards
-- Quests auto-complete when all objectives are met
+### Level 3: The Awakening ⛰️
+- **Coins Required**: 20
+- **Description**: Give back to restore balance
+- **Features**: Most challenging level with complex platforming and many obstacles
 
-### IAM Tokens
-- Earn tokens by:
-  - Completing quests
-  - Collecting coins
-  - Daily login bonuses
-- Tokens are saved in localStorage
+## 🎨 Design Features
 
-### Daily Login Bonus
-- Login each day to claim bonuses
-- Streak increases bonus amount
-- Bonus = 50 + (streak × 10) IAM tokens
+- **Clean UI**: Modern, futuristic aesthetic
+- **Dark/Light Mode**: Toggle between themes
+- **Responsive**: Works on desktop and mobile
+- **Smooth Animations**: Framer Motion for polished feel
+- **Visual Feedback**: Coin collection, level completion, win screen
 
-## 🔮 Future Features
+## 🔮 Future Enhancements
 
-- Connect to Stellar wallet (Lobstr or Freighter)
-- Real blockchain IAM token integration
-- Dynamic leaderboard
-- Real-time event zones
-- On-chain staking to unlock hidden areas
-- More zones and quests
-- Player achievements
-- Inventory system
+- Story intro and lore pop-ups per level
+- IAM staking to unlock hidden worlds
+- Stellar wallet connection for on-chain IAM tracking
+- Leaderboard and multiplayer race mode
+- Custom avatars (NFT-ready)
+- Sound effects and background music
+- More levels and power-ups
+- Enemy AI and combat system
 
-## 📝 License
+## 📝 Gameplay Tips
+
+1. **Collect Coins**: You need to collect the required number of coins to open barriers
+2. **Watch for Spikes**: Touching spikes resets the level
+3. **Avoid Pits**: Falling into pits resets the level
+4. **Platform Timing**: Some platforms require precise jumps
+5. **Complete All Levels**: Finish all 3 levels to achieve "The Awakening"
+
+## 🎮 How to Play
+
+1. Use arrow keys or WASD to move
+2. Jump with W, Space, or Up arrow
+3. Collect all coins in a level
+4. Reach the flag at the end to complete the level
+5. Complete all levels to restore balance!
+
+## 📄 License
 
 This project is open source and available for personal use.
 
-## 🙏 Credits
+---
 
-Built with ❤️ using Next.js, React, TypeScript, and Tailwind CSS.
-
+**Built with ❤️ using Next.js, React, TypeScript, and Tailwind CSS**

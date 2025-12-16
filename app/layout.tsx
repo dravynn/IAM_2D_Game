@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'IAM QUEST - Divine Hero Adventure',
-  description: 'Explore zones, complete quests, and collect IAM tokens',
+  title: 'IAM: The Awakening - Side-Scroller Platformer',
+  description: 'Play as I Am, restore balance to the world in this Mario-style platformer',
 }
 
 export default function RootLayout({
